@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis 15 - Keila</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- SECCIÓN PORTADA -->
+  <section class="inicio">
+    <img src="img/fondoCumpleKeila.png" alt="Portada Keila" class="portada-img" />
+    <div class="contenido">
+      <h1>KEILA</h1>
+      <h2>MIS 15 AÑOS</h2>
+    </div>
+    <div class="scroll-down"></div>
+  </section>
+
+  <!-- SECCIÓN FIESTA -->
+  <section class="fiesta">
+    <img src="img/magnificent-classic-iridescent-3d-butterfly-illustration-genuine-free-png.webp" alt="Mariposa decorativa" class="butterfly-left">
+    <img src="img/magnificent-classic-iridescent-3d-butterfly-illustration-genuine-free-png.webp" alt="Mariposa decorativa" class="butterfly-right">
+    <div class="countdown">
+      <div class="countdown-item">
+        <span id="dias">00</span>
+        <span class="label">días</span>
+      </div>
+      <div class="countdown-item">
+        <span id="horas">00</span>
+        <span class="label">hs</span>
+      </div>
+      <div class="countdown-item">
+        <span id="minutos">00</span>
+        <span class="label">min</span>
+      </div>
+      <div class="countdown-item">
+        <span id="segundos">00</span>
+        <span class="label">seg</span>
+      </div>
+    </div>
+    <div class="icono-seccion">
+      <img src="img/icono-fiesta.svg" alt="Icono Fiesta" class="icono animated">
+    </div>
+    <h2>FIESTA</h2>
+    <div class="info-fiesta">
+      <p class="fecha">Viernes 11 de Julio</p>
+      <p class="hora">21:00 hs.</p>
+      <p class="lugar">Salón Alesa Eventos</p>
+      <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+Alesa+Eventos', '_blank')" class="boton-ubicacion">CÓMO LLEGAR</button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DRESS CODE -->
+  <section class="dress-code">
+    <div class="icono-seccion">
+      <img src="img/icono-dresscode.svg" alt="Icono Dress Code" class="icono animated">
+    </div>
+    <h2>DRESS CODE</h2>
+    <p>Black & White (Etiqueta)</p>
+    <p>Celeste, plateado y dorado (Reservado para la quinceañera)</p>
+  </section>
+
+  <!-- SECCIÓN CONFIRMACIÓN -->
+  <section class="confirmacion">
+    <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+    <p>Cuento con tu presencia.</p>
+    <button class="boton-confirmar">Confirmar asistencia</button>
+  </section>
+
+  <!-- SECCIÓN PLAYLIST -->
+  <section class="playlist">
+    <div class="icono-seccion">
+      <img src="img/icono-canciones.svg" alt="Icono Playlist" class="icono animated">
+    </div>
+    <h2>¡PLAYLIST!</h2>
+    <p>¡Ayudame sugiriendo las canciones que pensás que no pueden faltar en la fiesta!</p>
+    <button class="boton-playlist">Sugerir canción</button>
+  </section>
+
+  <!-- SECCIÓN REGALO -->
+  <section class="regalo">
+    <img src="img/magnificent-classic-iridescent-3d-butterfly-illustration-genuine-free-png.webp" alt="Mariposa decorativa" class="regalo-butterfly-left">
+    <img src="img/magnificent-classic-iridescent-3d-butterfly-illustration-genuine-free-png.webp" alt="Mariposa decorativa" class="regalo-butterfly-right">
+    <div class="icono-seccion">
+      <img src="img/icono-regalo.svg" alt="Icono Regalo" class="icono animated">
+    </div>
+    <h2>REGALO</h2>
+    <p>El mejor regalo es que vengas, pero si deseás regalarme algo, podés colaborar con mis sueños y anhelos✨</p>
+    <button class="boton-regalo" onclick="mostrarDatosBancarios()">Hacer un regalo</button>
+  </section>
+
+  <!-- POPUP DATOS BANCARIOS -->
+  <div class="datos-bancarios-popup" id="datosBancariosPopup">
+    <div class="datos-bancarios">
+      <button class="cerrar-popup" onclick="cerrarDatosBancarios()">&times;</button>
+      <h3>Datos Bancarios</h3>
+      <ul>
+        <li>Nombre: XXXXX</li>
+        <li>Alias: XXXXX</li>
+        <li>Banco: XXXXX</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>¡Gracias por acompañarme en este momento tan importante!</p>
+  </footer>
+
+  <!-- Reproductor de Audio Flotante -->
+  <div class="audio-player" onclick="toggleAudio()">
+    <div class="audio-icon">
+      <i class="fas fa-music" id="audioIcon"></i>
+    </div>
+    <audio id="bgMusic" loop>
+      <source src="audio/JVKE-goldenHour.mp3" type="audio/mp3">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/countdown.js"></script>
+  <script>
+    function mostrarDatosBancarios() {
+      document.getElementById('datosBancariosPopup').classList.add('active');
+    }
+
+    function cerrarDatosBancarios() {
+      document.getElementById('datosBancariosPopup').classList.remove('active');
+    }
+
+    // Cerrar popup al hacer click fuera de él
+    document.getElementById('datosBancariosPopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+        cerrarDatosBancarios();
+      }
+    });
+
+    // Control de audio
+    let isPlaying = false;
+    const audio = document.getElementById('bgMusic');
+    const audioIcon = document.getElementById('audioIcon');
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-music');
+      } else {
+        audio.play();
+        audioIcon.classList.remove('fa-music');
+        audioIcon.classList.add('fa-pause');
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+</body>
+</html>
